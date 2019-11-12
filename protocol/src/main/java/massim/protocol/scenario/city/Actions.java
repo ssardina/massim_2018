@@ -19,6 +19,7 @@ public abstract class Actions {
     public final static String RETRIEVE = "retrieve";
     public final static String ASSEMBLE = "assemble";
     public final static String ASSIST_ASSEMBLE = "assist_assemble";
+    public final static String BUY = "buy";
     public final static String DELIVER_JOB = "deliver_job";
     public final static String RETRIEVE_DELIVERED = "retrieve_delivered";
     public final static String BID_FOR_JOB = "bid_for_job";
@@ -37,6 +38,6 @@ public abstract class Actions {
      * Unmodifiable list of all actions in the scenario.
      */
     public final static List<String> ALL_ACTIONS = Collections.unmodifiableList(Arrays.asList(GO_TO, RECEIVE, GIVE,
-            STORE, RETRIEVE, ASSEMBLE, ASSIST_ASSEMBLE, DELIVER_JOB, RETRIEVE_DELIVERED, BID_FOR_JOB, DUMP, CHARGE,
+            STORE, RETRIEVE, ASSEMBLE, ASSIST_ASSEMBLE, BUY, DELIVER_JOB, RETRIEVE_DELIVERED, BID_FOR_JOB, DUMP, CHARGE,
             CONTINUE, Action.NO_ACTION, GATHER, RECHARGE, ABORT, BUILD, DISMANTLE, TRADE, UPGRADE));
 }

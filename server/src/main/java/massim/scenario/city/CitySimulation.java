@@ -14,6 +14,7 @@ import massim.protocol.scenario.city.util.LocationUtil;
 import massim.scenario.AbstractSimulation;
 import massim.scenario.city.data.*;
 import massim.scenario.city.data.facilities.Facility;
+import massim.scenario.city.data.facilities.Shop;
 import massim.scenario.city.data.facilities.Storage;
 import massim.scenario.city.data.facilities.Well;
 import massim.scenario.city.data.facilities.WellType;
@@ -278,12 +279,18 @@ public class CitySimulation extends AbstractSimulation {
      * @return a list of those objects
      */
     private List<ShopData> buildShopData() {
+        // sell base items in shops - AY 2019
         return world.getShops().stream()
                 .sorted()
                 .map(shop ->
                         new ShopData(
-                                shop.getName(), shop.getLocation().getLat(), shop.getLocation().getLon()))
+                                shop.getName(), shop.getLocation().getLat(), shop.getLocation().getLon(),
+                                shop.getRestock(),
+                                shop.getOfferedItemsSorted().stream()
+                                        .map(item -> new StockData(item.getName(), shop.getPrice(item), shop.getItemCount(item)))
+                                        .collect(Collectors.toList())))
                 .collect(Collectors.toList());
+
     }
 
     /**
@@ -390,6 +397,10 @@ public class CitySimulation extends AbstractSimulation {
                 }
             }
         });
+
+        // sell base items in shops - AY 2019
+        // step shops
+        world.getShops().forEach(Shop::step);
 
         // process new jobs (created in this step)
         world.processNewJobs();

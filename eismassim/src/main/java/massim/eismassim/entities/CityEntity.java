@@ -163,9 +163,16 @@ public class CityEntity extends EISEntity {
                 new Identifier(well.getType()), new Identifier(well.getTeam()), new Numeral(well.getIntegrity()))));
 
         // shop percepts
-        percept.getShopData().forEach(shop ->
-                ret.add(new Percept("shop", new Identifier(shop.getName()), new Numeral(shop.getLat()),
-                        new Numeral(shop.getLon()))));
+        percept.getShopData().forEach(shop -> {
+            ParameterList shopItems = new ParameterList(
+                    shop.getOfferedItems().stream() // map items to functions and collect those in a param-list
+                            .map(item -> new Function("item", new Identifier(item.getName()),
+                                    new Numeral(item.getPrice()), new Numeral(item.getAmount())))
+                            .collect(Collectors.toList()));
+            ret.add(new Percept("shop", new Identifier(shop.getName()), new Numeral(shop.getLat()),
+                    new Numeral(shop.getLon()), new Numeral(shop.getRestock()), shopItems));
+        });
+
 
         // storage percepts
         percept.getStorage().forEach(storage -> {
