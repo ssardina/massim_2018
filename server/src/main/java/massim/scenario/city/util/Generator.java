@@ -26,6 +26,16 @@ public class Generator {
     private int tradeModMin;
     private int tradeModMax;
 
+    // sell base items in shops - AY 2019
+    private int minProd;
+    private int maxProd;
+    private int amountMin;
+    private int amountMax;
+    private int priceAddMin;
+    private int priceAddMax;
+    private int restockMin;
+    private int restockMax;
+
     private double dumpDensity;
 
     private double workshopDensity;
@@ -108,6 +118,25 @@ public class Generator {
                 Log.log(Log.Level.NORMAL, "Configuring facilities shop density: " + shopDensity);
                 tradeModMin = optInt(shops, "tradeModMin", 1);
                 tradeModMax = optInt(shops, "tradeModMax", 2);
+
+                // sell base items in shops - AY 2019
+                minProd = shops.optInt("minProd", 3);
+                Log.log(Log.Level.NORMAL, "Configuring facilities shop minProd: " + minProd);
+                maxProd = shops.optInt("maxProd", 10);
+                Log.log(Log.Level.NORMAL, "Configuring facilities shop maxProd: " + maxProd);
+                amountMin = shops.optInt("amountMin", 5);
+                Log.log(Log.Level.NORMAL, "Configuring facilities shop amountMin: " + amountMin);
+                amountMax = shops.optInt("amountMax", 20);
+                Log.log(Log.Level.NORMAL, "Configuring facilities shop amountMax: " + amountMax);
+                priceAddMin = shops.optInt("priceAddMin", 100);
+                Log.log(Log.Level.NORMAL, "Configuring facilities shop priceAddMin: " + priceAddMin);
+                priceAddMax = shops.optInt("priceAddMax", 150);
+                Log.log(Log.Level.NORMAL, "Configuring facilities shop priceAddMax: " + priceAddMax);
+                restockMin = shops.optInt("restockMin", 1);
+                Log.log(Log.Level.NORMAL, "Configuring facilities shop restockMin: " + restockMin);
+                restockMax = shops.optInt("restockMax", 5);
+                Log.log(Log.Level.NORMAL, "Configuring facilities shop restockMax: " + restockMax);
+
             }
 
             //parse dumps
@@ -336,7 +365,8 @@ public class Generator {
                 }
                 for(int i = 0; i < numberOfFacilities; i++) {
                     Location loc = getUniqueLocationInBounds(locations, world, a, a + quadSize, b, b + quadSize);
-                    Shop shop = new Shop("shop" + shops.size(), loc, between(tradeModMin, tradeModMax));
+                    // sell base items in shops - AY 2019
+                    Shop shop = new Shop("shop" + shops.size(), loc, between(restockMin, restockMax), between(tradeModMin, tradeModMax));
                     facilities.add(shop);
                     locations.add(shop.getLocation());
                     shops.add(shop);
@@ -344,11 +374,41 @@ public class Generator {
             }
         }
         if(shops.size() == 0){
-            Shop shop = new Shop("shop" + shops.size(), getUniqueLocation(locations, world), between(tradeModMin, tradeModMax));
+            // sell base items in shops - AY 2019
+            Shop shop = new Shop("shop" + shops.size(), getUniqueLocation(locations, world), between(restockMin, restockMax), between(tradeModMin, tradeModMax));
             facilities.add(shop);
             locations.add(shop.getLocation());
             shops.add(shop);
         }
+
+        // sell base items in shops - AY 2019
+        List<Item> shopItems = new ArrayList<>();
+        shopItems.addAll(world.getResources());
+        List<Item> usedItems = new ArrayList<>();
+        for(Shop shop: shops){
+            int numberOfProducts = Math.min(RNG.nextInt(maxProd - minProd + 1) + minProd, shopItems.size());
+
+            List<Item> unusedItems = new ArrayList<>(shopItems); // items not used for this shop
+            for(int j = 0; j < numberOfProducts; j++){
+                int productNumber = RNG.nextInt(unusedItems.size());
+                Item item = unusedItems.get(productNumber);
+                float priceAdd = (RNG.nextInt(priceAddMax - priceAddMin + 1) + priceAddMin) /
+100.0f;
+                int price = (int) (item.getValue() * priceAdd);
+                shop.addItem(item, RNG.nextInt(amountMax - amountMin + 1) + amountMin, price);
+                unusedItems.remove(productNumber);
+                usedItems.add(item);
+            }
+        }
+        shopItems.removeAll(usedItems);
+        for(Item item: shopItems){
+            int shopNumber = RNG.nextInt(shops.size());
+            Shop shop = shops.get(shopNumber);
+            float priceAdd = (RNG.nextInt((priceAddMax-priceAddMin) + 1) + priceAddMin) / 100.0f;
+            int price = (int) (item.getValue() * priceAdd);
+            shop.addItem(item, RNG.nextInt((amountMax-amountMin) + 1) + amountMin, price);
+        }
+
 
         // generate dumps
         int dumpCounter = 0;

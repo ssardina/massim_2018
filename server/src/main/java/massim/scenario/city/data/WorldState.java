@@ -30,6 +30,7 @@ public class WorldState {
     private double maxLon;
     private double minLat;
     private double maxLat;
+    private double restock;
 
     private Map<String, Item> items = new HashMap<>();
     private List<Item> assembledItems = new ArrayList<>();
@@ -42,6 +43,10 @@ public class WorldState {
     private List<Dump> dumps = new ArrayList<>();
     private List<ChargingStation> chargingStations = new ArrayList<>();
     private List<Shop> shops = new ArrayList<>();
+
+    // sell base items in shops - AY 2019
+    private Map<Item, List<Shop>> shopsByItem = new HashMap<>();
+
     private List<Storage> storages = new ArrayList<>();
     private List<ResourceNode> resourceNodes = new ArrayList<>();
     private Set<Well> wells = new HashSet<>();
@@ -99,6 +104,12 @@ public class WorldState {
         rechargeRate = config.optDouble("rechargeRate", 0.3);
         Log.log(Log.Level.NORMAL, "Configuring recharge rate: " + rechargeRate);
 
+
+        // restocking of base items in shops - AY 2019
+        restock = config.optDouble("restock", 1.2);
+        Log.log(Log.Level.NORMAL, "Configuring restock: " + restock);
+
+
         // parse upgrades
         JSONArray confUpgrades = config.getJSONArray("upgrades");
         for(int i = 0; i < confUpgrades.length(); i++) {
@@ -152,6 +163,15 @@ public class WorldState {
             else if(f instanceof ResourceNode) resourceNodes.add((ResourceNode) f);
         });
         wellTypes = generator.generateWellTypes();
+
+        // store shops by items they sell
+        // sell base items in shops - AY 2019
+        items.values().stream().filter(i -> !i.needsAssembly()).forEach(item -> shopsByItem.put(item, new ArrayList<>()));
+        shops.forEach(shop -> shop.getOfferedItems().stream()
+                // no tools in 2018 game - AY 2019
+                // .filter(item -> !(item instanceof Tool) && !item.needsAssembly())
+                .filter(item -> !item.needsAssembly())
+                .forEach(item -> shopsByItem.get(item).add(shop)));
 
         // draw initial locations
         Location[] initialLocations = new Location[roleSequence.size()];
@@ -448,6 +468,52 @@ public class WorldState {
      * @return the generator for this world
      */
     public Generator getGenerator(){ return gen;}
+
+    /**
+     * @param item an item
+     * @return a list of all shops where an item can be bought (if it is in stock)
+     */
+    private List<Shop> getShopsByItem(Item item){
+        return shopsByItem.get(item);
+    }
+
+    /**
+     * @param item any item
+     * @return a random shop where that item is sold or null if there is no such shop
+     */
+    private Shop getRandomShop(Item item){
+        List<Shop> suitableShops = getShopsByItem(item);
+        if(suitableShops.isEmpty()) return null;
+        return suitableShops.get(RNG.nextInt(suitableShops.size()));
+    }
+
+    /**
+     * Put the required baseitems of the job in some suitable shops.
+     * @param j the job to restock for
+     * @param multiplier the factor to multiply the restock chance with
+     */
+    public void jobRestock(Job j, double multiplier){
+        j.getRequiredItems().forEach((item, number) -> item.getRequiredBaseItems().forEach((baseItem, baseNumber) -> {
+            // resource nodes are now unlimited and have all items
+            // therefore this restockResource value is meaningless - AY 2019
+            // double chance = resourceSet.contains(baseItem)? restockResource : restock;
+            double chance = restock;
+            chance *= multiplier;
+            while(chance >= 1){
+                Shop shop = getRandomShop(baseItem);
+                if(shop != null) shop.restock(baseItem, number * baseNumber);
+                chance--;
+            }
+            if(chance > 0.001){
+                if(RNG.nextDouble() < chance){
+                    Shop shop = getRandomShop(baseItem);
+                    if(shop != null) shop.restock(baseItem, number * baseNumber);
+                }
+            }
+        }));
+    }
+
+
 
     /**
      * Retrieves the well type of the given name.
