@@ -341,8 +341,7 @@ public class CitySimulationTest {
         });
     }
 
-	// sell base items in shops - AY 2019
-    @Test
+    // sell base items in shops - AY 2019
     public void buyWorks(){
         WorldState world = sim.getWorldState();
         Entity e3 = world.getEntity("agentA3");

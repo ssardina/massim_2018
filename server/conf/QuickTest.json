@@ -93,7 +93,16 @@
           "shops" : {
             "density" : 0.8,
             "tradeModMin" : 1,
-            "tradeModMax" : 4
+            "tradeModMax" : 4,
+            "minProd" : 3,
+            "maxProd" : 10,
+            "amountMin" : 5,
+            "amountMax" : 20,
+            "priceAddMin" : 1,
+            "priceAddMax" : 2,
+            "restockMin" : 1,
+            "restockMax" : 5
+
           },
           "dumps" : {
             "density" : 0.6
@@ -130,6 +139,8 @@
           "levelDecreaseMax" : 2,
           "graphDepthMin" : 3,
           "graphDepthMax" : 4,
+          "valueMin" : 1,
+          "valueMax" : 5,
           "volMin" : 5,
           "volMax" : 10,
           "partsMin" : 2,

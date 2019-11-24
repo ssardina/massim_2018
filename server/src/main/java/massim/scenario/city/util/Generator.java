@@ -68,6 +68,8 @@ public class Generator {
     private int resourcesMax;
     private int volMin;
     private int volMax;
+    private int valueMin;
+    private int valueMax;
     private int partsMin;
     private int partsMax;
 
@@ -218,6 +220,8 @@ public class Generator {
 
             volMin = optInt(items, "volMin", 10);
             volMax = optInt(items, "volMax", 100);
+            valueMin = optInt(items, "valueMin", 10);
+            valueMax = optInt(items, "valueMax", 100);
             partsMin = optInt(items, "partsMin", 2);
             partsMax = optInt(items, "partsMax", 8);
         }
@@ -278,7 +282,7 @@ public class Generator {
 
         // generate base items/resources
         for(int i = 0; i < between(resourcesMin, resourcesMax); i++){
-            Item item = new Item("item" + i, between(volMin, volMax),
+            Item item = new Item("item" + i, between(volMin, volMax), between(valueMin, valueMax),
                         new HashSet<>(), new HashSet<>());
             items.add(item);
         }
@@ -300,7 +304,7 @@ public class Generator {
                 RNG.shuffle(roles);
                 Set<Role> requiredRoles = new HashSet<>(roles.subList(0, Math.min(2, roles.size())));
 
-                Item item = new Item("item" + itemCount++, between(volMin, volMax), parts, requiredRoles);
+                Item item = new Item("item" + itemCount++, between(volMin, volMax), between(valueMin, valueMax), parts, requiredRoles);
                 layerItems.add(item);
             }
             items.addAll(layerItems);
