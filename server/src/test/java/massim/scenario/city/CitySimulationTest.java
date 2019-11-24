@@ -342,6 +342,7 @@ public class CitySimulationTest {
     }
 
     // sell base items in shops - AY 2019
+    @Test
     public void buyWorks(){
         WorldState world = sim.getWorldState();
         Entity e3 = world.getEntity("agentA3");
@@ -441,31 +442,6 @@ public class CitySimulationTest {
         sim.step(step, actions);
 
         assert e2.getLastActionResult().equalsIgnoreCase("failed") || e2.getCurrentBattery() == 1;
-    }
-
-    @Test
-    public void gatherWorks(){
-        WorldState world = sim.getWorldState();
-        Entity e1 = world.getEntity("agentA1");
-        ResourceNode node = world.getResourceNodes().iterator().next();
-        Item item = node.getResource();
-
-        e1.clearInventory();
-        e1.setLocation(node.getLocation());
-
-        assert e1.getItemCount(item) == 0;
-
-        // check if the agent gathers at least once in 10 steps
-
-        Map<String, Action> actions = buildActionMap();
-        actions.put("agentA1", new Action("gather"));
-        for(int i = 0; i < 10; i++){
-            sim.preStep(step);
-            sim.step(step, actions);
-            step++;
-        }
-
-        assert e1.getItemCount(item) > 0;
     }
 
     @Test
