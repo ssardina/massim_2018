@@ -284,10 +284,15 @@ The following percepts might be included in a `REQUEST-ACTION` message. Most of 
   * name : Identifier
   * lat : Numeral
   * lon : Numeral
-* `shop(name, lat, lon)`
+* `shop(name, lat, lon, restock, [item(name1, price1, qty1), ...])`
   * name : Identifier - the shop's name
   * lat : Numeral
   * lon : Numeral
+  * restock : Numeral - number of steps between restocks
+  * item : Function - an item stocked in the shop
+    * name1 - Identifier : that item's name
+    * price1 - Numeral : the item's price in this shop
+    * qty1 - Numeral : the quantity available in this shop
 * `storage(name, lat, lon, cap, used, [item(name1, stored1, delivered1), ...])`
   * name : Identifier - the storage's name
   * lat : Numeral
