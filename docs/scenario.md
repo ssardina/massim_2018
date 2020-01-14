@@ -70,6 +70,9 @@ Facilities are placed randomly on the map. Each facility has a unique name and l
 
 In __shops__, items which have been assembled can be traded in by the agents. Each shop buys items at specific (unknown) prices. Also, agents may buy upgrades only in shops.
 
+Additionally, items can be bought at prices specific to the particular shop. Each shop only offers limited quantities of a subset of all items. However, items are restocked after a number of steps.
+E.g. if a shop has __restock__ 5, one piece of each missing item is added to the shop's stock each 5 steps.
+
 ### Charging stations
 
 __Charging stations__ have to be frequently visited by agents in order to recharge their battery. They have a __rate__ which expresses the amount of charge that
