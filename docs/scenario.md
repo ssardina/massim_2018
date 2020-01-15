@@ -345,6 +345,24 @@ failed_counterpart | The initiator's action has failed or is not _assemble_.
 failed_tools | Some agent role is missing.
 failed_location | The given agent is too far away.
 
+### buy
+
+Buys a number of items in a shop.
+
+No | Parameter | Meaning
+--- | --- | ---
+0 | Item | Name of the item to buy.
+1 | Amount | How many items to buy.
+
+Failure Code | Reason
+--- | ---
+failed_wrong_param | More or less than 2 parameters have been given.
+failed_location | The agent is not in a facility.
+failed_wrong_facility | The agent is not in a shop.
+failed_unknown_item | No item by the given name is known.
+failed_item_amount | The given amount is not an integer, less than 1, or greater than the shop's available quantity.
+failed_capacity | The agent does not have enough free space to carry the items.
+
 ### deliver_job
 
 Delivers items towards the completion of a job. The agent is automatically drained of all items matching the job's remaining requirements.
