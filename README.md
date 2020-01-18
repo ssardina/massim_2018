@@ -1,4 +1,4 @@
-MASSim 2016-2018: Agents in the City
+MASSim 2016-2020: Agents in the City (RMIT Version)
 ====================================
 
 [![Build Status](https://travis-ci.org/agentcontest/massim_2018.svg?branch=master)](https://travis-ci.org/agentcontest/massim_2018)
@@ -16,6 +16,11 @@ executed by _MASSim_.
 <p align="center">
   <img src="https://multiagentcontest.org/2016/banner.jpg">
 </p>
+
+**Note:** This server is the 2018 server modified to include back the following features from the 2017 edition:
+
+* Items in shops. In 2018 server, items could only be gathered in resource nodes whereas in previous servers they could also be purchased in shops. This version brings back items to shops as in 2017 server.
+
 
 Download
 --------
