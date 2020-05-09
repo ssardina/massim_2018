@@ -69,7 +69,7 @@
         <dependency>
             <groupId>ssardina-agts.massim</groupId>
             <artifactId>protocol</artifactId>
-            <version>2020-1.0</version>
+            <version>2020-1.5</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.json/json -->
         <dependency>
