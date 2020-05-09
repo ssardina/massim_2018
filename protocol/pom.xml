@@ -6,7 +6,7 @@
 
     <groupId>ssardina-agts.massim</groupId>
     <artifactId>protocol</artifactId>
-    <version>2020-1.0</version>
+    <version>2020-1.5</version>
 
     <packaging>jar</packaging>
 

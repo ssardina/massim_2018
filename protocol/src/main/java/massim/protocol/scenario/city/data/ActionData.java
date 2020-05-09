@@ -12,13 +12,13 @@ import java.util.Vector;
 public class ActionData {
 
     @XmlAttribute
-    private String type;
+    public String type;
 
     @XmlAttribute
-    private String result;
+    public String result;
 
     @XmlElement
-    private List<String> params;
+    public List<String> params;
 
     /**
      * For JAXB

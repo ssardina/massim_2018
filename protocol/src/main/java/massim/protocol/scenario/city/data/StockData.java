@@ -13,13 +13,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class StockData {
 
     @XmlAttribute
-    private String name;
+    public String name;
 
     @XmlAttribute
-    private int price;
+    public int price;
 
     @XmlAttribute
-    private int amount;
+    public int amount;
 
     /**
      * For JAXB

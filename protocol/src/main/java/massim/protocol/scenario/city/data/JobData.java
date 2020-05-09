@@ -14,31 +14,31 @@ public class JobData implements Comparable<JobData>{
     public static final String POSTER_SYSTEM = "system";
 
     @XmlAttribute
-    private String id;
+    public String id;
 
     @XmlAttribute
-    private String storage;
+    public String storage;
 
     @XmlAttribute
-    private int start;
+    public int start;
 
     @XmlAttribute
-    private int end;
+    public int end;
 
     @XmlAttribute
-    private int reward;
+    public int reward;
 
     @XmlAttribute
-    private String poster;
+    public String poster;
 
     @XmlElement(name = "required")
-    private List<ItemAmountData> requiredItems = new Vector<>();
+    public List<ItemAmountData> requiredItems = new Vector<>();
 
     /**
      * May be null.
      */
     @XmlElement(name="delivered")
-    private List<CompletionData> deliveredItems;
+    public List<CompletionData> deliveredItems;
 
     /**
      * For jaxb

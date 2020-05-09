@@ -12,16 +12,16 @@ import java.util.Vector;
 public class StorageData extends FacilityData {
 
     @XmlAttribute
-    private int totalCapacity;
+    public int totalCapacity;
 
     @XmlAttribute
-    private int usedCapacity;
+    public int usedCapacity;
 
     @XmlElement(name = "item")
-    private List<StoredData> items;
+    public List<StoredData> items;
 
     @XmlElement(name = "stored")
-    private List<TeamStoredData> teamItems;
+    public List<TeamStoredData> teamItems;
 
     /**
      * For JAXB

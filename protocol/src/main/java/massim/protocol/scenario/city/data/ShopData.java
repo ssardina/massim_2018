@@ -15,7 +15,7 @@ public class ShopData extends FacilityData {
     private int restock;
 
     @XmlElement(name = "item")
-    private List<StockData> stocks = new Vector<>();
+    public List<StockData> stocks = new Vector<>();
 
     /**
      * For jaxb

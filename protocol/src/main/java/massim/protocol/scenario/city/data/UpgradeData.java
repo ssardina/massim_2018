@@ -13,13 +13,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class UpgradeData {
 
     @XmlAttribute
-    private String name;
+    public String name;
 
     @XmlAttribute
-    private int cost;
+    public int cost;
 
     @XmlAttribute
-    private int step;
+    public int step;
 
     // jaxb
     private UpgradeData(){}

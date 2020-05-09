@@ -10,13 +10,13 @@ import javax.xml.bind.annotation.*;
 public class WellData extends FacilityData {
 
     @XmlAttribute
-    private String team;
+    public String team;
 
     @XmlAttribute
-    private String type;
+    public String type;
 
     @XmlAttribute
-    private int integrity;
+    public int integrity;
 
     /**
      * For JAXB

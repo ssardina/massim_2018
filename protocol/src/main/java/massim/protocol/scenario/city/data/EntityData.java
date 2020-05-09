@@ -12,55 +12,55 @@ import java.util.Vector;
 public class EntityData {
 
     @XmlAttribute
-    private String name;
+    public String name;
 
     @XmlAttribute
-    private Integer charge;
+    public Integer charge;
 
     @XmlAttribute
-    private Integer chargeMax;
+    public Integer chargeMax;
 
     @XmlAttribute
-    private Integer load;
+    public Integer load;
 
     @XmlAttribute
-    private Integer loadMax;
+    public Integer loadMax;
 
     @XmlAttribute
-    private Integer vision;
+    public Integer vision;
 
     @XmlAttribute
-    private Integer skill;
+    public Integer skill;
 
     @XmlAttribute
-    private Integer speed;
+    public Integer speed;
 
     @XmlElement(name = "action")
-    private ActionData lastAction;
+    public ActionData lastAction;
 
     @XmlAttribute
-    private double lat;
+    public double lat;
 
     @XmlAttribute
-    private double lon;
+    public double lon;
 
     @XmlAttribute
-    private String facility;
+    public String facility;
 
     @XmlAttribute
-    private Integer routeLength;
+    public Integer routeLength;
 
     @XmlAttribute
-    private String team;
+    public String team;
 
     @XmlAttribute
-    private String role;
+    public String role;
 
     @XmlElement
-    private List<ItemAmountData> items;
+    public List<ItemAmountData> items;
 
     @XmlElement
-    private List<WayPointData> route;
+    public List<WayPointData> route;
 
     /**
      * For JAXB

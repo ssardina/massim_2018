@@ -13,13 +13,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class WayPointData {
 
     @XmlAttribute(name = "i")
-    private int index;
+    public int index;
 
     @XmlAttribute
-    private double lat;
+    public double lat;
 
     @XmlAttribute
-    private double lon;
+    public double lon;
 
     /**
      * For JAXB
