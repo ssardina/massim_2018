@@ -13,7 +13,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class ChargingStationData extends FacilityData {
 
     @XmlAttribute
-    private int rate;
+    public int rate;
 
     /**
      * For JAXB

@@ -14,7 +14,7 @@ import java.util.List;
 public class MissionData extends AuctionJobData {
 
     @XmlAttribute
-    private String missionID;
+    public String missionID;
 
     private MissionData(){
         super();

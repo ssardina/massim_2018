@@ -13,7 +13,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class ResourceNodeData extends FacilityData {
 
     @XmlAttribute
-    private String resource;
+    public String resource;
 
     /**
      * For JAXB

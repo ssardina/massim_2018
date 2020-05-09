@@ -12,16 +12,16 @@ import java.util.Vector;
 public class ItemData {
 
     @XmlAttribute
-    private String name;
+    public String name;
 
     @XmlAttribute
-    private int volume;
+    public int volume;
 
     @XmlElement(name="item")
-    private List<NameData> parts;
+    public List<NameData> parts;
 
     @XmlElement(name="role")
-    private List<NameData> roles;
+    public List<NameData> roles;
 
     /**
      * For JAXB

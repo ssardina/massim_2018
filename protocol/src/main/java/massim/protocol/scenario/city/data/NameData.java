@@ -13,7 +13,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class NameData {
 
     @XmlAttribute
-    private String name;
+    public String name;
 
     /**
      * For JAXB

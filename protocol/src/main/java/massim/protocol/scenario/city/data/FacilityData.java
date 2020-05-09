@@ -16,10 +16,10 @@ public abstract class FacilityData {
     public String name;
 
     @XmlAttribute
-    private double lat;
+    public double lat;
 
     @XmlAttribute
-    private double lon;
+    public double lon;
 
     /**
      * Constructor for JAXB

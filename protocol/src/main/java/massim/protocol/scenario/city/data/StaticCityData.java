@@ -13,43 +13,43 @@ import java.util.List;
 public class StaticCityData extends StaticWorldData {
 
     @XmlAttribute(name="id")
-    private String simId;
+    public String simId;
 
     @XmlAttribute
-    private int steps;
+    public int steps;
 
     @XmlAttribute
-    private String map;
+    public String map;
 
     @XmlAttribute
-    private long seedCapital;
+    public long seedCapital;
 
     @XmlList
-    private List<String> teams;
+    public List<String> teams;
 
     @XmlElement(name="role")
-    private List<RoleData> roles;
+    public List<RoleData> roles;
 
     @XmlElement(name="item")
-    private List<ItemData> items;
+    public List<ItemData> items;
 
     @XmlElement(name="wellType")
-    private List<WellTypeData> wellTypes;
+    public List<WellTypeData> wellTypes;
 
     @XmlElement(name="upgrades")
-    private List<UpgradeData> upgrades;
+    public List<UpgradeData> upgrades;
 
     @XmlAttribute
-    private double minLat;
+    public double minLat;
 
     @XmlAttribute
-    private double maxLat;
+    public double maxLat;
 
     @XmlAttribute
-    private double minLon;
+    public double minLon;
 
     @XmlAttribute
-    private double maxLon;
+    public double maxLon;
 
     /**
      * For jaxb.

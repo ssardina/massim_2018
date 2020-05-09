@@ -13,10 +13,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class ItemAmountData {
 
     @XmlAttribute
-    private String name;
+    public String name;
 
     @XmlAttribute
-    private int amount;
+    public int amount;
 
     /**
      * For JAXB

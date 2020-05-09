@@ -13,13 +13,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class TeamData {
 
     @XmlAttribute
-    private String name;
+    public String name;
 
     @XmlAttribute
-    private long massium;
+    public long massium;
 
     @XmlAttribute
-    private long score;
+    public long score;
 
     /**
      * For JAXB

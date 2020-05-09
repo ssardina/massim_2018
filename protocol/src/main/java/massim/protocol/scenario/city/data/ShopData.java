@@ -12,7 +12,7 @@ import java.util.Vector;
 public class ShopData extends FacilityData {
 
     @XmlElement(name = "item")
-    private List<StockData> stocks = new Vector<>();
+    public List<StockData> stocks = new Vector<>();
 
     /**
      * For jaxb

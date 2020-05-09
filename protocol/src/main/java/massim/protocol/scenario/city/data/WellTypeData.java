@@ -13,19 +13,19 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class WellTypeData {
 
     @XmlAttribute
-    private String name;
+    public String name;
 
     @XmlAttribute
-    private int efficiency;
+    public int efficiency;
 
     @XmlAttribute
-    private int cost;
+    public int cost;
 
     @XmlAttribute
-    private int integrity;
+    public int integrity;
 
     @XmlAttribute
-    private int initialIntegrity;
+    public int initialIntegrity;
 
     // For JAXB
     private WellTypeData() {}

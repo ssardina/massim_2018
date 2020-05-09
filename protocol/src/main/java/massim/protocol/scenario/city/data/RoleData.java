@@ -15,37 +15,37 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class RoleData {
 
     @XmlAttribute
-    private String name;
+    public String name;
 
     @XmlAttribute
-    private int baseSpeed;
+    public int baseSpeed;
 
     @XmlAttribute
-    private int maxSpeed;
+    public int maxSpeed;
 
     @XmlAttribute
-    private int baseBattery;
+    public int baseBattery;
 
     @XmlAttribute
-    private int maxBattery;
+    public int maxBattery;
 
     @XmlAttribute
-    private int baseLoad;
+    public int baseLoad;
 
     @XmlAttribute
-    private int maxLoad;
+    public int maxLoad;
 
     @XmlAttribute
-    private int baseSkill;
+    public int baseSkill;
 
     @XmlAttribute
-    private int maxSkill;
+    public int maxSkill;
 
     @XmlAttribute
-    private int baseVision;
+    public int baseVision;
 
     @XmlAttribute
-    private int maxVision;
+    public int maxVision;
 
     /**
      * For JAXB

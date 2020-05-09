@@ -13,18 +13,18 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class StoredData {
 
     @XmlAttribute
-    private String name;
+    public String name;
 
     @XmlAttribute
-    private int stored;
+    public int stored;
 
     @XmlAttribute
-    private int delivered;
+    public int delivered;
 
     /**
      * For jaxb
      */
-    private StoredData() {}
+    public StoredData() {}
 
     /**
      * Constructor.

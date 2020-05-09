@@ -14,13 +14,13 @@ import java.util.List;
 public class AuctionJobData extends JobData {
 
     @XmlAttribute
-    private int fine;
+    public int fine;
 
     @XmlAttribute
-    private int auctionTime;
+    public int auctionTime;
 
     @XmlAttribute
-    private Integer lowestBid;
+    public Integer lowestBid;
 
     /**
      * For jaxb
