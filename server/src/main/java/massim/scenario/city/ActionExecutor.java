@@ -365,6 +365,46 @@ public class ActionExecutor {
                 assistants.get(assembler).add(entity);
                 break;
 
+
+            // sell base items in shops - AY 2019
+            case BUY: // 2 params (item, amount)
+                if(params.size() != 2){
+                    entity.setLastActionResult(FAILED_WRONG_PARAM);
+                    break;
+                }
+                facility = world.getFacilityByLocation(entity.getLocation());
+                if(facility == null){
+                    entity.setLastActionResult(FAILED_LOCATION);
+                    break;
+                }
+                else if(!(facility instanceof Shop)){
+                    entity.setLastActionResult(FAILED_WRONG_FACILITY);
+                    break;
+                }
+                Shop shop = (Shop)facility;
+                item = world.getItemByName(params.get(0));
+                if(item == null){
+                    entity.setLastActionResult(FAILED_UNKNOWN_ITEM);
+                    break;
+                }
+                amount = -1;
+                try{
+                    amount = Integer.parseInt(params.get(1));
+                } catch(NumberFormatException ignored){}
+                if(amount < 1 || amount > shop.getItemCount(item)){
+                    entity.setLastActionResult(FAILED_ITEM_AMOUNT);
+                    break;
+                }
+                if(entity.getFreeSpace() < amount * item.getVolume()){
+                    entity.setLastActionResult(FAILED_CAPACITY);
+                    break;
+                }
+                int price = shop.buy(item, amount);
+                entity.addItem(item, amount);
+                world.getTeam(world.getTeamForAgent(agent)).subMassium(price);
+                entity.setLastActionResult(SUCCESSFUL);
+                break;
+
             case DELIVER_JOB: // 1 param (job)
                 if(params.size() != 1){
                     entity.setLastActionResult(FAILED_WRONG_PARAM);
@@ -429,7 +469,8 @@ public class ActionExecutor {
                     entity.setLastActionResult(FAILED_UNKNOWN_JOB);
                     break;
                 }
-                int price = -1;
+                // naughty - AY 2019
+                price = -1;
                 try{
                     price = Integer.parseInt(params.get(1));
                 } catch(NumberFormatException ignored){}
@@ -508,7 +549,8 @@ public class ActionExecutor {
                     entity.setLastActionResult(FAILED_WRONG_FACILITY);
                     return;
                 }
-                Shop shop = (Shop) fac;
+                // more naughty - AY 2019
+                shop = (Shop) fac;
                 entity.removeItem(item, amount);
                 world.getTeam(world.getTeamForAgent(agent)).addMassium(item.getValue() * shop.getTradeModifier());
                 entity.setLastActionResult(SUCCESSFUL);

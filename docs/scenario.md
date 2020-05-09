@@ -70,6 +70,9 @@ Facilities are placed randomly on the map. Each facility has a unique name and l
 
 In __shops__, items which have been assembled can be traded in by the agents. Each shop buys items at specific (unknown) prices. Also, agents may buy upgrades only in shops.
 
+Additionally, items can be bought at prices specific to the particular shop. Each shop only offers limited quantities of a subset of all items. However, items are restocked after a number of steps.
+E.g. if a shop has __restock__ 5, one piece of each missing item is added to the shop's stock each 5 steps.
+
 ### Charging stations
 
 __Charging stations__ have to be frequently visited by agents in order to recharge their battery. They have a __rate__ which expresses the amount of charge that
@@ -341,6 +344,24 @@ failed_unknown_agent | No agent by the given name is known.
 failed_counterpart | The initiator's action has failed or is not _assemble_.
 failed_tools | Some agent role is missing.
 failed_location | The given agent is too far away.
+
+### buy
+
+Buys a number of items in a shop.
+
+No | Parameter | Meaning
+--- | --- | ---
+0 | Item | Name of the item to buy.
+1 | Amount | How many items to buy.
+
+Failure Code | Reason
+--- | ---
+failed_wrong_param | More or less than 2 parameters have been given.
+failed_location | The agent is not in a facility.
+failed_wrong_facility | The agent is not in a shop.
+failed_unknown_item | No item by the given name is known.
+failed_item_amount | The given amount is not an integer, less than 1, or greater than the shop's available quantity.
+failed_capacity | The agent does not have enough free space to carry the items.
 
 ### deliver_job
 

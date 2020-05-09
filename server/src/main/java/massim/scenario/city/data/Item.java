@@ -1,6 +1,7 @@
 package massim.scenario.city.data;
 
 import java.util.*;
+import java.util.stream.Stream;
 import java.util.stream.Collectors;
 
 /**
@@ -14,15 +15,16 @@ public class Item implements Comparable<Item>{
     private Set<Role> rolesNeeded;
     private int value;
 
-    public Item(String id, int volume, Set<Item> parts, Set<Role> roles){
+    public Item(String id, int volume, int value, Set<Item> parts, Set<Role> roles){
         this.id = id;
         this.volume = volume;
         this.requiredItems = parts;
         this.rolesNeeded = roles;
-        if(parts.isEmpty()) value = 0;
+        if(parts.isEmpty()) this.value = value;
         else {
-            value = getRequiredBaseItems().values().stream().mapToInt(i -> i).sum();
+            value = getRequiredItems().stream().mapToInt(i -> i.getValue()).sum();
         }
+
     }
 
     /**

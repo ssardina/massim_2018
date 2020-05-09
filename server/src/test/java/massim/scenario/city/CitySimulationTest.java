@@ -341,6 +341,52 @@ public class CitySimulationTest {
         });
     }
 
+    // sell base items in shops - AY 2019
+    @Test
+    public void buyWorks(){
+        WorldState world = sim.getWorldState();
+        Entity e3 = world.getEntity("agentA3");
+        long money = world.getTeam("A").getMassium();
+        Shop shop = null;
+        Item item = null;
+        for(Shop s: world.getShops()){
+            for(Item i: s.getOfferedItems()){
+                if(s.getItemCount(i) > 0){
+                    shop = s;
+                    item = i;
+                    break;
+                }
+            }
+            if(item != null) break;
+        }
+        assert(shop != null && item != null);
+
+        e3.clearInventory();
+        e3.setLocation(shop.getLocation());
+
+        assert e3.getItemCount(item) == 0;
+
+        sim.preStep(step);
+        Map<String, Action> actions = buildActionMap();
+        actions.put("agentA3", new Action("buy", item.getName(), "1"));
+        sim.step(step, actions);
+
+        assert e3.getItemCount(item) == 1;
+        assert world.getTeam("A").getMassium() == money - shop.getPrice(item);
+
+        step++;
+
+        // buy too many items
+        sim.preStep(step);
+        actions = buildActionMap();
+        actions.put("agentA3", new Action("buy", item.getName(), "100"));
+        sim.step(step, actions);
+
+        assert e3.getItemCount(item) == 1;
+        assert e3.getLastActionResult().equals("failed_item_amount");
+        assert world.getTeam("A").getMassium() == money - shop.getPrice(item);
+    }
+
     @Test
     public void dumpWorks(){
         WorldState world = sim.getWorldState();
@@ -396,31 +442,6 @@ public class CitySimulationTest {
         sim.step(step, actions);
 
         assert e2.getLastActionResult().equalsIgnoreCase("failed") || e2.getCurrentBattery() == 1;
-    }
-
-    @Test
-    public void gatherWorks(){
-        WorldState world = sim.getWorldState();
-        Entity e1 = world.getEntity("agentA1");
-        ResourceNode node = world.getResourceNodes().iterator().next();
-        Item item = node.getResource();
-
-        e1.clearInventory();
-        e1.setLocation(node.getLocation());
-
-        assert e1.getItemCount(item) == 0;
-
-        // check if the agent gathers at least once in 10 steps
-
-        Map<String, Action> actions = buildActionMap();
-        actions.put("agentA1", new Action("gather"));
-        for(int i = 0; i < 10; i++){
-            sim.preStep(step);
-            sim.step(step, actions);
-            step++;
-        }
-
-        assert e1.getItemCount(item) > 0;
     }
 
     @Test
