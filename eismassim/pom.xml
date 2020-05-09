@@ -50,6 +50,10 @@
     </build>
 
     <repositories>
+        <!-- This seems to be using this technique
+            https://gist.github.com/fernandezpablo85/03cf8b0cd2e7d8527063
+            and using this github repo as a mvn repo:
+            https://github.com/eishub/mvn-repo -->
         <repository>
             <id>eishub-mvn-repo</id>
             <url>https://raw.github.com/eishub/mvn-repo/master</url>
