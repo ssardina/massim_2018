@@ -10,11 +10,11 @@ public abstract class Log {
         if (logOn) System.out.println(message);
     }
 
-    public boolean isLogOn() {
+    public static boolean isLogOn() {
         return logOn;
     }
 
-    public void setLogOn(boolean logOn) {
+    public static void setLogOn(boolean logOn) {
         this.logOn = logOn;
     }
 }
