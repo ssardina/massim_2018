@@ -14,7 +14,7 @@ public abstract class Log {
         return logOn;
     }
 
-    public static void setLogOn(boolean logOn) {
-        this.logOn = logOn;
+    public static void setLogOn(boolean x) {
+        logOn = x;
     }
 }
