@@ -1,6 +1,7 @@
 package massim.protocol.scenario.city.data;
 
 import javax.xml.bind.annotation.*;
+import java.util.Objects;
 
 /**
  * Holds JAXB annotated data of a well facility.
@@ -30,6 +31,22 @@ public class WellData extends FacilityData {
         this.team = team;
         this.type = typeName;
         this.integrity = integrity;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        WellData wellData = (WellData) o;
+        return integrity == wellData.integrity &&
+                team.equals(wellData.team) &&
+                type.equals(wellData.type);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), team, type, integrity);
     }
 
     public String getName() {

@@ -4,6 +4,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.util.Objects;
 
 /**
  * Holds data of a waypoint in a route
@@ -36,6 +37,21 @@ public class WayPointData {
         this.index = index;
         this.lat = lat;
         this.lon = lon;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        WayPointData that = (WayPointData) o;
+        return index == that.index &&
+                Double.compare(that.lat, lat) == 0 &&
+                Double.compare(that.lon, lon) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(index, lat, lon);
     }
 
     /**

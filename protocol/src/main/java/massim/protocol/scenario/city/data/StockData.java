@@ -4,6 +4,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.util.Objects;
 
 /**
  * Holds data of an item offered in a shop (name, price and amount).
@@ -36,6 +37,21 @@ public class StockData {
         name = itemName;
         this.price = price;
         this.amount = amount;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        StockData stockData = (StockData) o;
+        return price == stockData.price &&
+                amount == stockData.amount &&
+                name.equals(stockData.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, price, amount);
     }
 
     /**

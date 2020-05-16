@@ -2,6 +2,7 @@ package massim.protocol.scenario.city.data;
 
 import javax.xml.bind.annotation.*;
 import java.util.List;
+import java.util.Objects;
 import java.util.Vector;
 
 /**
@@ -35,6 +36,20 @@ public class ActionData {
         this.type = type;
         this.result = result;
         if(parameters != null && parameters.size() > 0) this.params = parameters;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ActionData that = (ActionData) o;
+        return type.equals(that.type) &&
+                params.equals(that.params);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(type, params);
     }
 
     /**

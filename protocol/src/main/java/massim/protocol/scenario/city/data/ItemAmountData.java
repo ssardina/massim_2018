@@ -4,6 +4,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.util.Objects;
 
 /**
  * Stores an amount for an item, e.g. to store crafting requirements.
@@ -31,6 +32,20 @@ public class ItemAmountData {
     public ItemAmountData(String name, int amount){
         this.name = name;
         this.amount = amount;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ItemAmountData that = (ItemAmountData) o;
+        return amount == that.amount &&
+                name.equals(that.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, amount);
     }
 
     /**
