@@ -44,12 +44,13 @@ public class ActionData {
         if (o == null || getClass() != o.getClass()) return false;
         ActionData that = (ActionData) o;
         return type.equals(that.type) &&
-                params.equals(that.params);
+                result.equals(that.result) &&
+                Objects.equals(params, that.params);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(type, params);
+        return Objects.hash(type, result, params);
     }
 
     /**
