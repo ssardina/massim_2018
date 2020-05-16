@@ -49,4 +49,15 @@ public class ShopData extends FacilityData {
     public List<StockData> getOfferedItems(){
         return stocks;
     }
+
+    @Override
+    public String toString() {
+        return "ShopData{" +
+                "restock=" + restock +
+                ", stocks=" + stocks +
+                ", name='" + name + '\'' +
+                ", lat=" + lat +
+                ", lon=" + lon +
+                '}';
+    }
 }

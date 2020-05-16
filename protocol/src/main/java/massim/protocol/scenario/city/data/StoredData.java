@@ -58,4 +58,13 @@ public class StoredData {
     public int getDelivered(){
         return delivered;
     }
+
+    @Override
+    public String toString() {
+        return "StoredData{" +
+                "name='" + name + '\'' +
+                ", stored=" + stored +
+                ", delivered=" + delivered +
+                '}';
+    }
 }

@@ -128,4 +128,23 @@ public class StaticCityData extends StaticWorldData {
     public List<UpgradeData> getUpgrades() {
         return upgrades;
     }
+
+    @Override
+    public String toString() {
+        return "StaticCityData{" +
+                "simId='" + simId + '\'' +
+                ", steps=" + steps +
+                ", map='" + map + '\'' +
+                ", seedCapital=" + seedCapital +
+                ", teams=" + teams +
+                ", roles=" + roles +
+                ", items=" + items +
+                ", wellTypes=" + wellTypes +
+                ", upgrades=" + upgrades +
+                ", minLat=" + minLat +
+                ", maxLat=" + maxLat +
+                ", minLon=" + minLon +
+                ", maxLon=" + maxLon +
+                '}';
+    }
 }

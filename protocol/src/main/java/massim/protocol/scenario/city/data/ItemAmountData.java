@@ -61,4 +61,12 @@ public class ItemAmountData {
     public int getAmount() {
         return amount;
     }
+
+    @Override
+    public String toString() {
+        return "ItemAmountData{" +
+                "name='" + name + '\'' +
+                ", amount=" + amount +
+                '}';
+    }
 }

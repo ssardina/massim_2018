@@ -112,5 +112,13 @@ public class StorageData extends FacilityData {
         public List<StoredData> getStored() {
             return stored;
         }
+
+        @Override
+        public String toString() {
+            return "TeamStoredData{" +
+                    "teamName='" + teamName + '\'' +
+                    ", stored=" + stored +
+                    '}';
+        }
     }
 }

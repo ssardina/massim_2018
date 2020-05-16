@@ -181,4 +181,27 @@ public class EntityData {
     public List<WayPointData> getRoute() {
         return route == null? new Vector<>() : route;
     }
+
+    @Override
+    public String toString() {
+        return "EntityData{" +
+                "name='" + name + '\'' +
+                ", charge=" + charge +
+                ", chargeMax=" + chargeMax +
+                ", load=" + load +
+                ", loadMax=" + loadMax +
+                ", vision=" + vision +
+                ", skill=" + skill +
+                ", speed=" + speed +
+                ", lastAction=" + lastAction +
+                ", lat=" + lat +
+                ", lon=" + lon +
+                ", facility='" + facility + '\'' +
+                ", routeLength=" + routeLength +
+                ", team='" + team + '\'' +
+                ", role='" + role + '\'' +
+                ", items=" + items +
+                ", route=" + route +
+                '}';
+    }
 }

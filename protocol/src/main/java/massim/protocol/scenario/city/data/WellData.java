@@ -64,4 +64,16 @@ public class WellData extends FacilityData {
     public int getIntegrity() {
         return integrity;
     }
+
+    @Override
+    public String toString() {
+        return "WellData{" +
+                "team='" + team + '\'' +
+                ", type='" + type + '\'' +
+                ", integrity=" + integrity +
+                ", name='" + name + '\'' +
+                ", lat=" + lat +
+                ", lon=" + lon +
+                '}';
+    }
 }

@@ -74,4 +74,13 @@ public class WayPointData {
     public double getLon() {
         return lon;
     }
+
+    @Override
+    public String toString() {
+        return "WayPointData{" +
+                "index=" + index +
+                ", lat=" + lat +
+                ", lon=" + lon +
+                '}';
+    }
 }

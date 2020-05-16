@@ -38,4 +38,14 @@ public class ChargingStationData extends FacilityData {
     public int getRate() {
         return rate;
     }
+
+    @Override
+    public String toString() {
+        return "ChargingStationData{" +
+                "rate=" + rate +
+                ", name='" + name + '\'' +
+                ", lat=" + lat +
+                ", lon=" + lon +
+                '}';
+    }
 }

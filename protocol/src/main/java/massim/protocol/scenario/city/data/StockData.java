@@ -74,4 +74,13 @@ public class StockData {
     public int getAmount() {
         return amount;
     }
+
+    @Override
+    public String toString() {
+        return "StockData{" +
+                "name='" + name + '\'' +
+                ", price=" + price +
+                ", amount=" + amount +
+                '}';
+    }
 }

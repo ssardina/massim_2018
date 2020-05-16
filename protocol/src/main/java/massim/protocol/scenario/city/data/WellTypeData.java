@@ -57,4 +57,15 @@ public class WellTypeData {
     public int getInitialIntegrity() {
         return initialIntegrity;
     }
+
+    @Override
+    public String toString() {
+        return "WellTypeData{" +
+                "name='" + name + '\'' +
+                ", efficiency=" + efficiency +
+                ", cost=" + cost +
+                ", integrity=" + integrity +
+                ", initialIntegrity=" + initialIntegrity +
+                '}';
+    }
 }

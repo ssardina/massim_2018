@@ -72,4 +72,12 @@ public class ActionData {
     public List<String> getParams() {
         return params == null? new Vector<>() : params;
     }
+
+    @Override
+    public String toString() {
+        return "ActionData{" +
+                type + "(" + params + ") - " +
+                result +
+                "}";
+    }
 }

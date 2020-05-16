@@ -69,4 +69,14 @@ public class ItemData {
     public List<NameData> getRoles() {
         return roles == null? new Vector<>() : roles;
     }
+
+    @Override
+    public String toString() {
+        return "ItemData{" +
+                "name='" + name + '\'' +
+                ", volume=" + volume +
+                ", parts=" + parts +
+                ", roles=" + roles +
+                '}';
+    }
 }

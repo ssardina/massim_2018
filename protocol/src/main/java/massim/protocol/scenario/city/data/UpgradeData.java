@@ -41,4 +41,13 @@ public class UpgradeData {
     public int getStep() {
         return step;
     }
+
+    @Override
+    public String toString() {
+        return "UpgradeData{" +
+                "name='" + name + '\'' +
+                ", cost=" + cost +
+                ", step=" + step +
+                '}';
+    }
 }

@@ -68,4 +68,13 @@ public abstract class FacilityData {
     public double getLon() {
         return lon;
     }
+
+    @Override
+    public String toString() {
+        return "FacilityData{" +
+                "name='" + name + '\'' +
+                ", lat=" + lat +
+                ", lon=" + lon +
+                '}';
+    }
 }

@@ -110,4 +110,22 @@ public class RoleData {
     public int getMaxVision() {
         return maxVision;
     }
+
+
+    @Override
+    public String toString() {
+        return "RoleData{" +
+                "name='" + name + '\'' +
+                ", baseSpeed=" + baseSpeed +
+                ", maxSpeed=" + maxSpeed +
+                ", baseBattery=" + baseBattery +
+                ", maxBattery=" + maxBattery +
+                ", baseLoad=" + baseLoad +
+                ", maxLoad=" + maxLoad +
+                ", baseSkill=" + baseSkill +
+                ", maxSkill=" + maxSkill +
+                ", baseVision=" + baseVision +
+                ", maxVision=" + maxVision +
+                '}';
+    }
 }

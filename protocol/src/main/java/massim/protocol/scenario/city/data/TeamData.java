@@ -54,4 +54,13 @@ public class TeamData {
     public String getName(){
         return name == null? "": name;
     }
+
+    @Override
+    public String toString() {
+        return "TeamData{" +
+                "name='" + name + '\'' +
+                ", massium=" + massium +
+                ", score=" + score +
+                '}';
+    }
 }
