@@ -70,4 +70,19 @@ public class AuctionJobData extends JobData {
     public int getAuctionTime(){
         return auctionTime;
     }
+
+    @Override
+    public String toString() {
+        return "AuctionData{" +
+                "id='" + id + '\'' +
+                ", storage=" + storage +
+                ", reward=" + reward +
+                ", start=" + start +
+                ", end=" + end +
+                ", fine=" + fine +
+                ", lowestBid=" + lowestBid +
+                ", auctionTime=" + auctionTime +
+                ", requiredItems=" + requiredItems +
+                '}';
+    }
 }

@@ -48,4 +48,19 @@ public class MissionData extends AuctionJobData {
     public String getMissionID(){
         return missionID;
     }
+
+    @Override
+    public String toString() {
+        return "MissionData{" +
+                "id='" + id + '\'' +
+                ", storage=" + storage +
+                ", reward=" + reward +
+                ", start=" + start +
+                ", end=" + end +
+                ", fine=" + fine +
+                ", lowestBid=" + lowestBid +
+                ", auctionTime=" + auctionTime +
+                ", requiredItems=" + requiredItems +
+                '}';
+    }
 }

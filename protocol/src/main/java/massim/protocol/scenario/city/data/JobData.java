@@ -157,4 +157,16 @@ public class JobData implements Comparable<JobData>{
     public int compareTo(JobData o) {
         return start - o.start;
     }
+
+    @Override
+    public String toString() {
+        return "JobData{" +
+                "id='" + id + '\'' +
+                ", storage=" + storage +
+                ", reward=" + reward +
+                ", start=" + start +
+                ", end=" + end +
+                ", requiredItems=" + requiredItems +
+                '}';
+    }
 }
