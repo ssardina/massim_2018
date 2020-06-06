@@ -39,4 +39,13 @@ public class ResourceNodeData extends FacilityData {
         return resource;
     }
 
+    @Override
+    public String toString() {
+        return "ResourceNodeData{" +
+                "name='" + name + '\'' +
+                ", lat=" + lat +
+                ", lon=" + lon +
+                ", resource='" + resource + '\'' +
+                '}';
+    }
 }

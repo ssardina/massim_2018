@@ -2,6 +2,7 @@ package massim.protocol.scenario.city.data;
 
 import javax.xml.bind.annotation.*;
 import java.util.List;
+import java.util.Objects;
 import java.util.Vector;
 
 /**
@@ -36,6 +37,21 @@ public class ShopData extends FacilityData {
         if(items != null && items.size() > 0) stocks = items;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        ShopData shopData = (ShopData) o;
+        return restock == shopData.restock &&
+                stocks.equals(shopData.stocks);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), restock, stocks);
+    }
+
     /**
      * @return the restock interval of the shop
      */
@@ -53,11 +69,11 @@ public class ShopData extends FacilityData {
     @Override
     public String toString() {
         return "ShopData{" +
-                "restock=" + restock +
-                ", stocks=" + stocks +
-                ", name='" + name + '\'' +
+                "name='" + name + '\'' +
                 ", lat=" + lat +
                 ", lon=" + lon +
+                ", restock=" + restock +
+                ", stocks=" + stocks +
                 '}';
     }
 }

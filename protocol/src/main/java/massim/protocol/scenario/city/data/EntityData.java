@@ -2,6 +2,7 @@ package massim.protocol.scenario.city.data;
 
 import javax.xml.bind.annotation.*;
 import java.util.List;
+import java.util.Objects;
 import java.util.Vector;
 
 /**
@@ -114,6 +115,21 @@ public class EntityData {
         this.lon = lon;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        EntityData that = (EntityData) o;
+        return Double.compare(that.lat, lat) == 0 &&
+                Double.compare(that.lon, lon) == 0 &&
+                name.equals(that.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, lat, lon);
+    }
+
     public String getName() {
         return name == null? "" : name;
     }
@@ -186,6 +202,9 @@ public class EntityData {
     public String toString() {
         return "EntityData{" +
                 "name='" + name + '\'' +
+                ", lat=" + lat +
+                ", lon=" + lon +
+                ", facility='" + facility + '\'' +
                 ", charge=" + charge +
                 ", chargeMax=" + chargeMax +
                 ", load=" + load +
@@ -194,9 +213,6 @@ public class EntityData {
                 ", skill=" + skill +
                 ", speed=" + speed +
                 ", lastAction=" + lastAction +
-                ", lat=" + lat +
-                ", lon=" + lon +
-                ", facility='" + facility + '\'' +
                 ", routeLength=" + routeLength +
                 ", team='" + team + '\'' +
                 ", role='" + role + '\'' +

@@ -25,4 +25,14 @@ public class WorkshopData extends FacilityData {
     public WorkshopData(String name, double lat, double lon) {
         super(name, lat, lon);
     }
+
+
+    @Override
+    public String toString() {
+        return "WorkshopData{" +
+                "name='" + name + '\'' +
+                ", lat=" + lat +
+                ", lon=" + lon +
+                '}';
+    }
 }

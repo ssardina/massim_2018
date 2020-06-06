@@ -68,12 +68,12 @@ public class WellData extends FacilityData {
     @Override
     public String toString() {
         return "WellData{" +
-                "team='" + team + '\'' +
-                ", type='" + type + '\'' +
-                ", integrity=" + integrity +
-                ", name='" + name + '\'' +
+                "name='" + name + '\'' +
                 ", lat=" + lat +
                 ", lon=" + lon +
+                ", team='" + team + '\'' +
+                ", type='" + type + '\'' +
+                ", integrity=" + integrity +
                 '}';
     }
 }

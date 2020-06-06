@@ -42,10 +42,10 @@ public class ChargingStationData extends FacilityData {
     @Override
     public String toString() {
         return "ChargingStationData{" +
-                "rate=" + rate +
-                ", name='" + name + '\'' +
+                "name='" + name + '\'' +
                 ", lat=" + lat +
                 ", lon=" + lon +
+                ", rate=" + rate +
                 '}';
     }
 }

@@ -25,4 +25,13 @@ public class DumpData extends FacilityData {
     public DumpData(String name, double lat, double lon) {
         super(name, lat, lon);
     }
+
+    @Override
+    public String toString() {
+        return "DumpData{" +
+                "name='" + name + '\'' +
+                ", lat=" + lat +
+                ", lon=" + lon +
+                '}';
+    }
 }

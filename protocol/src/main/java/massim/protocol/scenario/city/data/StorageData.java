@@ -77,6 +77,19 @@ public class StorageData extends FacilityData {
         return teamItems == null? new Vector<>() : teamItems;
     }
 
+    @Override
+    public String toString() {
+        return "StorageData{" +
+                "name='" + name + '\'' +
+                ", lat=" + lat +
+                ", lon=" + lon +
+                ", totalCapacity=" + totalCapacity +
+                ", usedCapacity=" + usedCapacity +
+                ", items=" + items +
+                ", teamItems=" + teamItems +
+                '}';
+    }
+
     /**
      * Stores how many items are stored for one team.
      */
