@@ -1,17 +1,11 @@
-MASSim 2016-2020: Agents in the City (RMIT Version)
-====================================
+# MASSim 2018+: Agents in the City (RMIT Version)
 
 [![Build Status](https://travis-ci.org/agentcontest/massim_2018.svg?branch=master)](https://travis-ci.org/agentcontest/massim_2018)
 
-_MASSim_ (Multi-Agent Systems Simulation Platform), the simulation (server)
-software used in the
-[Multi-Agent Programming Contest](https://multiagentcontest.org/),
-where participants program agents to compete with each other in a
-predefined game.
+_MASSim_ (Multi-Agent Systems Simulation Platform), the simulation (server) software used in the [Multi-Agent Programming Contest](https://multiagentcontest.org/),
+where participants program agents to compete with each other in a predefined game.
 
-_MASSim_ simulations run in discrete steps. Agents connect remotely to the
-contest server, receive percepts and send their actions, which are in turn
-executed by _MASSim_.
+_MASSim_ simulations run in discrete steps. Agents connect remotely to the contest server, receive percepts and send their actions, which are in turn executed by _MASSim_.
 
 <p align="center">
   <img src="https://multiagentcontest.org/2016/banner.jpg">
@@ -20,23 +14,18 @@ executed by _MASSim_.
 **Note:** This server is the 2018 server modified to include back the following features from the 2017 edition:
 
 * Items in shops. In 2018 server, items could only be gathered in resource nodes whereas in previous servers they could also be purchased in shops. This version brings back items to shops as in 2017 server.
-
-
-Download
+# Download
 --------
 
 We upload **binary releases** to GitHub: https://github.com/agentcontest/massim/releases
 
-Building MASSim
----------------
+# Building MASSim
 
 The build requires Maven.
 
-Run `mvn package` in the main directory. Maven should automatically
-fetch all nescessary dependencies.
+Run `mvn package` in the main directory. Maven should automatically fetch all necessary dependencies.
 
-Documentation
--------------
+# Documentation
 
 [server.md](docs/server.md) describes how the _MASSim_ server can be configured and started.
 
@@ -50,8 +39,6 @@ Documentation
 
 [monitor.md](docs/monitor.md) describes how to view live matches and replays in the browser.
 
-License
--------
+# License
 
-_MASSim_ is licensed under the AGPLv3+. See COPYING.txt for the full
-license text.
+_MASSim_ is licensed under the AGPLv3+. See COPYING.txt for the full license text.
