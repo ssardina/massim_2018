@@ -1,6 +1,6 @@
 # MASSim 2018+: Agents in the City (RMIT Version)
 
-[![Build Status](https://travis-ci.org/agentcontest/massim_2018.svg?branch=master)](https://travis-ci.org/agentcontest/massim_2018)
+[![Build Status](https://travis-ci.com/ssardina-agts/agtcity-server.svg?branch=master)](https://travis-ci.com/ssardina-agts/agtcity-server)
 
 _MASSim_ (Multi-Agent Systems Simulation Platform), the simulation (server) software used in the [Multi-Agent Programming Contest](https://multiagentcontest.org/),
 where participants program agents to compete with each other in a predefined game.
