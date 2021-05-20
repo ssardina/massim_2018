@@ -19,7 +19,7 @@ MY_NAME=${0##*/}
 #echo
 #exit
 
-JAR=target/server-2020-1.0-jar-with-dependencies.jar
+JAR=target/server-2021-1.0-jar-with-dependencies.jar
 
 if [ "$NO_ARGS" -ge 1 ]; then
   java -jar $JAR --monitor 8001 -conf "$1"
