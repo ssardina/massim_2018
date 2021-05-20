@@ -11,3 +11,6 @@ monitor/src/main/resources/www/ol.css
 monitor/js/*.js
 *.iml
 .idea/
+.project
+.classpath
+.settings/
