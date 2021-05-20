@@ -616,7 +616,7 @@ public class Generator {
         if (itemsAvailable.size() == 0){
         	itemsAvailable = world.getResources();
         }
-        
+
         ItemBox itemsRequired = new ItemBox();
         int numberOfItems = between(itemCountMin, itemCountMax);
         for(int i = 0; i < numberOfItems; i++) {

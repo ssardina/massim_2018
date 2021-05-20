@@ -22,7 +22,13 @@ public class Item implements Comparable<Item>{
         this.rolesNeeded = roles;
         if(parts.isEmpty()) this.value = value;
         else {
-            value = getRequiredItems().stream().mapToInt(i -> i.getValue()).sum();
+            // THESE ARE TWO EQUIVALENT WAYS OF DOING IT!!
+            // this.value = 0;
+            // for(Item  item : getRequiredItems()) {
+            //    // System.out.println(String.format("Item %s requires item %s for value %s", id, item.getName(), item.getValue()));
+            //     this.value += item.getValue();
+            // }
+            this.value = getRequiredItems().stream().mapToInt(i -> i.getValue()).sum();
         }
 
     }
