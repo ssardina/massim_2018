@@ -17,7 +17,7 @@ _MASSim_ simulations run in discrete steps. Agents connect remotely to the conte
 # Download
 --------
 
-We upload **binary releases** to GitHub: https://github.com/agentcontest/massim/releases
+We upload **binary releases** to GitHub: https://github.com/ssardina-agts/agtcity-server/releases
 
 # Building MASSim
 
