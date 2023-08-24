@@ -22,7 +22,7 @@ MY_NAME=${0##*/}
 JAR=target/server-2021-1.0-jar-with-dependencies.jar
 
 if [ "$NO_ARGS" -ge 1 ]; then
-  java -jar $JAR --monitor 8001 -conf "$1"
+  $JAVA_HOME/bin/java -jar $JAR --monitor 8001 -conf "$1"
 else
-  java -jar $JAR --monitor 8001
+  $JAVA_HOME/bin/java -jar $JAR --monitor 8001
 fi

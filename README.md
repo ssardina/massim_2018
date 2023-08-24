@@ -14,16 +14,31 @@ _MASSim_ simulations run in discrete steps. Agents connect remotely to the conte
 **Note:** This server is the 2018 server modified to include back the following features from the 2017 edition:
 
 * Items in shops. In 2018 server, items could only be gathered in resource nodes whereas in previous servers they could also be purchased in shops. This version brings back items to shops as in 2017 server.
-# Download
---------
 
 We upload **binary releases** to GitHub: https://github.com/ssardina-agts/agtcity-server/releases
 
-# Building MASSim
+# Building and running the server
 
 The build requires Maven.
 
-Run `mvn package` in the main directory. Maven should automatically fetch all necessary dependencies.
+Run `mvn clean package` in the main directory. Maven should automatically fetch all necessary dependencies.
+
+**UPDATE August 2023:** server does not work with Java 17 (class version 55), throws exceptions at run-time. However, it compiles and runs with Java 11:
+
+```shell
+$ sudo apt-get install openjdk-11-jdk
+$ export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64 
+$ mvn clean package
+```
+
+Then to run it:
+
+```shell
+$ ./startServer.sh conf/SampleConfig-ManyItems.json 
+```
+
+Note the script `startServer` uses `JAVA_HOME` environment variable already that should be pointing to Java 11.
+
 
 # Documentation
 
