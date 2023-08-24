@@ -39,6 +39,17 @@ $ ./startServer.sh conf/SampleConfig-ManyItems.json
 
 Note the script `startServer` uses `JAVA_HOME` environment variable already that should be pointing to Java 11.
 
+Note that even running with old Java 11 we get the warning:
+
+```shell
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by com.sun.xml.bind.v2.runtime.reflect.opt.Injector (file:/home/ssardina/Insync/ssardina@gmail.com/GoogleDrive/PROJECTS/agents/mapc/agents-in-city.nosync/2018-rmit/agtcity-server.git/server/target/server-2021-1.0-jar-with-dependencies.jar) to method java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int)
+WARNING: Please consider reporting this to the maintainers of com.sun.xml.bind.v2.runtime.reflect.opt.Injector
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+```
+
+This is what JAVA 17 complains and does not allow anymore. :-)
 
 # Documentation
 
