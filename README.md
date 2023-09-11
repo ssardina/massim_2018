@@ -51,6 +51,25 @@ WARNING: All illegal access operations will be denied in a future release
 
 This is what JAVA 17 complains and does not allow anymore. :-)
 
+# Building and running with Docker
+
+Requires Docker
+
+Build the images
+
+`docker build -t agtcity-server-rmit .`
+
+Run the container:
+
+`docker run -p8001:8001 -p12300:12300 -i  -t agtcity-server-rmit /bin/bash`
+
+Inside the container run the desired configuration:
+
+```shell
+$ ./startServer.sh conf/SampleConfig-ManyItems.json 
+```
+
+
 # Documentation
 
 [server.md](docs/server.md) describes how the _MASSim_ server can be configured and started.
