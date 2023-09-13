@@ -53,13 +53,24 @@ This is what JAVA 17 complains and does not allow anymore. :-)
 
 # Building and running with Docker
 
-Requires Docker
+All steps below require [Docker](https://docs.docker.com/get-docker/)
+
+## Quick try
+
+Run the server from docker hub:
+`docker run -p8001:8001 -p12300:12300 -i  -t rodriguezseb/agtcity-server-rmit ./startServer.sh conf/SampleConfig-ManyItems.json`
+
+## Building and running from source
 
 Build the images
 
 `docker build -t agtcity-server-rmit .`
 
-Run the container:
+Run a configuration:
+
+`docker run -p8001:8001 -p12300:12300 -i  -t agtcity-server-rmit ./startServer.sh conf/SampleConfig-ManyItems.json`
+
+Run interactively:
 
 `docker run -p8001:8001 -p12300:12300 -i  -t agtcity-server-rmit /bin/bash`
 
@@ -69,6 +80,7 @@ Inside the container run the desired configuration:
 $ ./startServer.sh conf/SampleConfig-ManyItems.json 
 ```
 
+Other configurations are available in the `conf` folder.
 
 # Documentation
 
